@@ -6,6 +6,7 @@ This repo contains some custom items that could be used for Power BI projects, n
 ## Calendar Table
 
 ### Calendar_Table_PowerQuery (file)
+* Create a new blank query and paste the code from this file. Edit if you must and then click OK.
 * You can custom the start date and end date.
 
 ### eDNA Extended Date Table v2 (Aug 2022)
