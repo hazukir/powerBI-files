@@ -13,3 +13,6 @@ This repo contains some custom items that could be used for Power BI projects, n
 * Provides more capabilities like parameters. You can delete the columns you do not need.
 For more info please check:
 https://forum.enterprisedna.co/t/extended-date-table-power-query-m-function/6390/20
+
+### Rolling Callendar - POWER QUERY
+* Follow the instructions on the file.
