@@ -1,0 +1,11 @@
+Rolling Callendar - POWER QUERY
+
+create a blank query, then type as example =#date(2018,1,1)
+
+then choose "fx" button and then type
+
+= List.Dates(Source, Number.From(DateTime.LocalNow())-Number.From(Source), #duration(1,0,0,0))
+
+this will generate the time from beginning of 2018 until current date. - Right click and transform from list to table.
+Give it a name to Table and column.
+From there you can add new columns like YEAR, QUARTER and others in the "Add column" tab.
