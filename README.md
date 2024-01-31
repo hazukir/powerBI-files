@@ -15,4 +15,4 @@ For more info please check:
 https://forum.enterprisedna.co/t/extended-date-table-power-query-m-function/6390/20
 
 ### Rolling Callendar - POWER QUERY
-* Follow the instructions on the file.
+* Follow the instructions in the file.
