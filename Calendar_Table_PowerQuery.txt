@@ -1,0 +1,25 @@
+let
+    // Start and end dates for the calendar table
+    StartDate = #date(2013,1,1),
+    EndDate = #date(2015,12,31),
+
+    // Number of days in the calendar table
+    NumberOfDays = Duration.Days(EndDate-StartDate)+1,
+
+    // Generate a list of dates
+    DatesList = List.Dates(StartDate, NumberOfDays, #duration(1,0,0,0)),
+
+    // Convert the list of dates to a table
+    CalendarTable = Table.FromList(DatesList, Splitter.SplitByNothing(), {"Date"}, null, ExtraValues.Error),
+    #"Inserted Year" = Table.AddColumn(CalendarTable, "Year", each Date.Year([Date]), Int64.Type),
+    #"Inserted Quarter" = Table.AddColumn(#"Inserted Year", "Quarter", each Date.QuarterOfYear([Date]), Int64.Type),
+    #"Inserted Month" = Table.AddColumn(#"Inserted Quarter", "Month", each Date.Month([Date]), Int64.Type),
+    #"Inserted Month Name" = Table.AddColumn(#"Inserted Month", "Month Name", each Date.MonthName([Date]), type text),
+    #"Inserted Start of Month" = Table.AddColumn(#"Inserted Month Name", "Start of Month", each Date.StartOfMonth([Date]), type date),
+    #"Inserted End of Month" = Table.AddColumn(#"Inserted Start of Month", "End of Month", each Date.EndOfMonth([Date]), type date),
+    #"Inserted Days in Month" = Table.AddColumn(#"Inserted End of Month", "Days in Month", each Date.DaysInMonth([Date]), Int64.Type),
+    #"Inserted Week of Year" = Table.AddColumn(#"Inserted Days in Month", "Week of Year", each Date.WeekOfYear([Date]), Int64.Type),
+    #"Inserted Day" = Table.AddColumn(#"Inserted Week of Year", "Day", each Date.Day([Date]), Int64.Type),
+    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Day Name", each Date.DayOfWeekName([Date]), type text)
+in
+    #"Inserted Day Name"
